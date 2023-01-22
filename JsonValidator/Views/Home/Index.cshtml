@@ -1,0 +1,35 @@
+﻿@model JSONValidationViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+<script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.js"></script>
+<script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/javascript/javascript.min.js"></script>
+<script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/fold/foldgutter.min.js"></script>
+<script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/fold/brace-fold.min.js"></script>
+<script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/fold/foldcode.min.js"></script>
+<script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/lint/json-lint.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css" />
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/theme/monokai.min.css" />
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/fold/foldgutter.min.css" />
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/lint/lint.min.css" />
+
+<div class="container">
+    <h1>JSON Validation Tool</h1>
+    <form method="post" asp-controller="Home" asp-action="Index">
+        <div class="form-group">
+            <label for="json-string">JSON String:</label>
+            <textarea class="form-control" rows="10" id="json-string" name="jsonString" asp-for="@Model.JSONString"></textarea>
+            <span asp-validation-for="JSONString"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Validate JSON</button>
+    </form>
+    <br>
+    @if (@Model != null)
+    {
+        <div class="alert @(Model.IsValid ? "alert-success" : "alert-danger")" role="alert">
+            @(Model.IsValid ? "Valid JSON" : "Invalid JSON: " + Model.ErrorMessage)
+        </div>
+    }
+</div>
+

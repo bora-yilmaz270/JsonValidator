@@ -15,8 +15,4 @@ Bu aracı kullanabilmek için sisteminizde .NET'in en son sürümünün yüklü 
 3. Bağımlılıkları yükleyin ve projeyi derleyin.
 
 ## Kullanım
-Aracı kullanmak için, kontrol etmek istediğiniz JSON dosyasını araca yükleyin ve analizi başlatın. Aracın kullanımı ile ilgili daha detaylı bilgiyi [Kullanım Kılavuzu](#) bölümünde bulabilirsiniz.
-
-
-## Lisans
-Bu proje [MIT Lisansı](LICENSE) altında lisanslanmıştır.
+Aracı kullanmak için, kontrol etmek istediğiniz JSON dosyasını araca yükleyin ve analizi başlatın.
